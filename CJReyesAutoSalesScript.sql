@@ -10,7 +10,7 @@ Phone VARCHAR(12) NOT NULL,
 PRIMARY KEY (DealershipID)
 );
 
-INSERT INTO Dealerships (dealerchip_id, name, address, phone)
+INSERT INTO Dealerships (dealership_id, name, address, phone)
 VALUES
 (NULL, 'CJ Reyes Auto Sales', '915 Mullins St', '972-456-6039'),
 (NULL, 'Reyes Venta de Carros', '1001 W Sixth ST', '469-259-3432'),
@@ -50,4 +50,22 @@ VALUES
 (NULL, 2, '2VQ1'),
 (NULL, 3, '5GH3');
 
+CREATE TABLE Sale_Contracts (
+id INT AUTO_INCREMENT,
+date_of_contract DATETIME,
+customer_name VARCHAR(100) NOT NULL,
+customer_email VARCHAR(100) NOT NULL,
+VIN VARCHAR(20) NOT NULL,
+original_price DECIMAL(10,2) NOT NULL,
+financed BOOLEAN NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (VIN) REFERENCES Vehicles(VIN)
+);
 
+INSERT INTO Sales_Contracts (id, date_of_Contract, customer_name, customer_email, VIN, original_price, financed)
+VALUES
+(NULL, '2024-10-07 16:15:23', 'Asali Pizzarali', 'asali.p@littleitaliapizzeria.com', '8WZ2', 3999.99, TRUE),
+(NULL, '2024-11-11 09:50:12', 'Aldo Alvarez', 'alvarez.aldo@petkit.com', '2VQ1', 13999.99, TRUE),
+(NULL, '2024-11-22 15:43:26', 'Minerva Shak' 'shak.mina90@gmail.com', '5GH3', 17999.99, FALSE);
+
+ 
