@@ -29,4 +29,25 @@ sold BOOLEAN NOT NULL,
 PRIMARY KEY (VIN)
 );
 
+INSERT INTO Vehicles (VIN, year,make, model, vehicle_type, color, odometer, price, sold)
+VALUES 
+('8WZ2', '2005','Scion', 'TC', 'Coupe', 'Purple', 3500,3999.99, FALSE),
+('2VQ1','2013', 'Toyota', 'RAV4', 'SUV', 'Blue',12000,13999.99, TRUE),
+('5GH3', '2019', 'Honda', 'Civic', 'Sedan', 'Silver', 16000, 17999.99, TRUE);
+
+CREATE TABLE Inventory (
+inventory_id INT AUTO_INCREMENT,
+dealership_id INT NOT  NULL,
+VIN VARCHAR(20) NOT NULL,
+PRIMARY KEY (inventory_id),
+FOREIGN KEY ( dealership_id) REFERENCES Dealerships(dealersip_id),
+FOREIGN KEY (VIN) REFERENCES Vehicles(VIN)
+);
+
+INSERT INTO Inventory (inventory_id, dealership_id, VIN)
+VALUES
+(NULL, 1, '8WZ2'),
+(NULL, 2, '2VQ1'),
+(NULL, 3, '5GH3');
+
 
